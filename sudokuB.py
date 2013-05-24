@@ -3,8 +3,8 @@
 # Autore: Daniele Buffa
 # Originariamente scritto per il progetto Eulero
 # Risolve sudoku legali ( che hanno una soluzione )
-# Perché sudokuB? esistevano varie versioni, questa è risultata la più veloce
-# 
+# Perchï¿½ sudokuB? esistevano varie versioni, questa ï¿½ risultata la piï¿½ veloce
+ 
 
 from itertools import permutations
 #import random
@@ -33,9 +33,9 @@ def processa(r,tmp_list):
     for index,item in enumerate(sudoku[r]):
         if item != 0: #sapendo il numero filtriamo in positivo
             tmp_list = [x for x in tmp_list if x[index] == item]
-        elif item == 0: #la casella è vuota ma possiamo filtrare per quello che NON deve essere
-            #perché non else? volevo esplicitare la condizione per renderlo più chiaro
-            #perché non un altro if? perché questa funzione verrà chiamata un sacco di volte e così lo costringeremmmo a controllare due condizioni mutualmente esclusive, cosa priva di senso
+        elif item == 0: #la casella ï¿½ vuota ma possiamo filtrare per quello che NON deve essere
+            #perchï¿½ non else? volevo esplicitare la condizione per renderlo piï¿½ chiaro
+            #perchï¿½ non un altro if? perchï¿½ questa funzione verrï¿½ chiamata un sacco di volte e cosï¿½ lo costringeremmmo a controllare due condizioni mutualmente esclusive, cosa priva di senso
             colonna = [sudoku[x][index] for x in range(9)]
             quadrante = [sudoku[x][y] for x in range(0+((r/3)*3),3+((r/3)*3)) for y in range(0+((index/3)*3),3+((index/3)*3))]
             tmp_list = [x for x in tmp_list if x[index] not in (colonna+quadrante)]
@@ -81,12 +81,12 @@ while righe_da_risolvere:
         righe_modificate.append(riga)
         righe_da_risolvere.remove(riga)
         posizione_candidato = ","+str(n_candidato)
-        #tutto questo casino è per salvare la nostra posizione attuale 
+        #tutto questo casino ï¿½ per salvare la nostra posizione attuale 
         ultimo_candidato = n_candidato
         posizione_precedente = posizione[:]
         posizione += posizione_candidato
     else:
-        #il tentativo non è andato a buon fine resettiamo la posizione iniziale e proviamo un altro percorso
+        #il tentativo non ï¿½ andato a buon fine resettiamo la posizione iniziale e proviamo un altro percorso
         j += 1
         for x in righe_modificate:
             sudoku[x] = sudoku_bak[x][:]
